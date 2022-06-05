@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ApiCRUD_Test_IronMountain';
+
+  getName(): void{
+
+      console.log("Hello Angular");
+  }
 }

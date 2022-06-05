@@ -1,0 +1,118 @@
+
+<div class="container col-md-12">
+
+    <div class="row col-md-12 container-controls">
+
+        <div class="row col-md-6 container-news">
+            <input id="btnNewUser" type="button" class="btn btn-md btn-primary col-md-3" value="New User" (click) = "changeTitle()" data-toggle="modal" data-target="#newUserModal"/>
+            <input id="btnUploadCSV" type="button" class="btn btn-md btn-primary col-md-3 pull-right" value="Upload SCV" data-toggle="modal" data-target="#uploadCSVModal"/>
+        </div>
+
+        <div class="row col-md-6 container-search text-right">
+            <input id="txtSearch" type="text" class="form-control input-md col-md-6" placeholder="Search" />
+        </div>
+        
+    </div>
+
+    
+
+    <div class="row col-md-12 col-md-offset-2 custyle">
+
+        <table id="tableUsers" class="table center">  
+            <thead class="thead-dark">
+                <tr>
+                <th>ID</th>
+                <th>Registration Date</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>CURP</th>
+                <th></th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let item of listData">
+                    <td><span>{{ item.txtID }}</span></td>
+                    <td><span>{{ item.txtRegistrationDate }}</span></td>
+                    <td><span>{{ item.txtName }}</span></td>
+                    <td><span>{{ item.txtAddress }}</span></td>
+                    <td><span>{{ item.txtPhone }}</span></td>
+                    <td><span>{{ item.txtCurp }}</span></td>
+                    <td><button type="button" class="btn btn-success" (click) = "geteditUser(item)" data-toggle="modal" data-target="#newUserModal">Edit User</button></td>
+                    <td><button type="button" class="btn btn-danger" (click) = "deleteUser(item)">Delete User</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+
+<!--Modal-->
+
+<div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="newUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup] = "userForm">
+            <div class="form-group">
+              <label class="control-lanel">ID</label>
+              <input type="text" class="form-control" formControlName="txtID" id="txtID" placeholder="User ID">
+            </div>
+            <div class="form-group">
+              <label class="control-lanel">Name</label>
+              <input type="text" class="form-control" formControlName ="txtName" id="txtName" placeholder="Complete Name">
+            </div>
+            <div class="form-group">
+              <label class="control-lanel">Address</label>
+              <input type="text" class="form-control" formControlName="txtAddress" id="txtAddress" placeholder="Address">
+            </div>
+            <div class="form-group">
+              <label class="control-lanel">Phone Number</label>
+              <input type="text" class="form-control" formControlName="txtPhone" id="txtPhone" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <label class="control-lanel">CURP</label>
+              <input type="text" class="form-control" formControlName="txtCurp" id="txtCurp" placeholder="CURP">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click) ="resetControl()">Close</button>
+          <button type="button" class="btn btn-primary" (click) = "saveOrEditUser()">Save User</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="uploadCSVModal" tabindex="-1" role="dialog" aria-labelledby="newUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Upload Users with CSV File</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <input type="file" class="form-control" id="txtFileCSV" placeholder="Select your file CSV" />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" (click) = "readFile()">Upload CSV</button>
+        </div>
+      </div>
+    </div>
+  </div>

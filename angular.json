@@ -99,12 +99,23 @@
               "src/assets"
             ],
             "styles": [
+              "..node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
+              
             ],
-            "scripts": []
+            "scripts": [
+              
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "6abf4bbd-7b66-4d37-b81c-27c7c4a62393"
   }
 }
