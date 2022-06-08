@@ -410,7 +410,6 @@ export class BodyComponent implements OnInit {
 
 
     let file = inputFile.files[0];
-    console.log(file);
     if(file!=null){
 
       let reader = new FileReader();
@@ -454,7 +453,6 @@ export class BodyComponent implements OnInit {
     
       output.forEach((value: any, index:number) => {
 
-        console.log(counter);
         if(counter > 0){
 
             this.userService.insertUser(year + '-' + month + '-' + day, value[0], value[1], value[2], value[3]).subscribe(
