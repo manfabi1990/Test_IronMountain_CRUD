@@ -3,11 +3,12 @@
 
     <div class="row col-md-12 container-controls">
 
+        <!--Controls for save a new Contact-->
         <div class="row col-md-6 container-news">
             <input id="btnNewUser" type="button" class="btn btn-md btn-primary col-md-3" value="New Contact" (click) = "changeTitle()" data-toggle="modal" data-target="#newUserModal"/>
             <input id="btnUploadCSV" type="button" class="btn btn-md btn-primary col-md-3 pull-right" value="Upload SCV" data-toggle="modal" data-target="#uploadCSVModal"/>
         </div>
-
+        <!--Control for search a contact into-->
         <div class="row col-md-6" style="display: contents;">
             <input id="txtSearch" type="text" class="form-control input-md col-md-6" placeholder="Search Contact" />
         </div>
@@ -18,6 +19,7 @@
 
     <div class="row col-md-12 col-md-offset-2 custyle">
 
+        <!--Table of contacts-->
         <table id="tableUsers" class="table center">  
             <thead class="thead-dark">
                 <tr>
@@ -50,8 +52,7 @@
 </div>
 
 
-<!--Modal-->
-
+<!--Modal / To save or edit a contact-->
 <div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="newUserModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -91,32 +92,33 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
 
-  <div class="modal fade" id="uploadCSVModal" tabindex="-1" role="dialog" aria-labelledby="newUserModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Upload Contact with CSV File</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          
-          Remember that the format of the CSV file must have the following format:
-          <br>
-          Name, Address, Number Phone, CURP
-          <form>
-            <div class="form-group">
-              <input type="file" class="form-control" id="txtFileCSV" placeholder="Select your file CSV" accept=".csv" />
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (clcik) ="resetControl()" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary" (click) = "readFile()">Upload CSV</button>
-        </div>
+<!--Modal / To save contacts using a CSV file-->
+<div class="modal fade" id="uploadCSVModal" tabindex="-1" role="dialog" aria-labelledby="newUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Upload Contact with CSV File</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        Remember that the format of the CSV file must have the following format:
+        <br>
+        Name, Address, Number Phone, CURP
+        <form>
+          <div class="form-group">
+            <input type="file" class="form-control" id="txtFileCSV" placeholder="Select your file CSV" accept=".csv" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (clcik) ="resetControl()" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click) = "readFile()">Upload CSV</button>
       </div>
     </div>
   </div>
+</div>

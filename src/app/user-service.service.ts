@@ -5,19 +5,22 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
+
+//service that works as a consumer of a PHP API
 export class UserServiceService {
 
 URL = "http://localhost/php_test/Views/"
 
   constructor(private http: HttpClient) { }
 
-  //
+  //Service for get all contacts
   getAll(){
 
     return this.http.get(`${this.URL}getAllusersService.php`);
 
   }
 
+  //Service for delete contacts
   deleteUser(ID: number){
 
 
@@ -26,6 +29,7 @@ URL = "http://localhost/php_test/Views/"
 
   }
 
+  //Service for save a new contact
   insertUser(registrationDate: string, name: String, address: String, phone: String, curp: String){
 
 
@@ -33,6 +37,7 @@ URL = "http://localhost/php_test/Views/"
 
   }
 
+  //Service for edit a contact
   editUser(id: String, registrationDate: string, name: String, address: String, phone: String, curp: String){
 
 

@@ -19,12 +19,14 @@ import Swal from 'sweetalert2';
 
 export class BodyComponent implements OnInit {
 
+  //
   userForm: FormGroup;
   listData: any;
   Swal = ('sweetalert2')
   
   
   
+  //Constructor
   constructor(private fb: FormBuilder, private userService: UserServiceService) {
 
     this.listData = [];
@@ -44,6 +46,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Function to save a new contact or edit it depending on whether it has an id or not
   saveOrEditUser(): void{
 
     let id : HTMLInputElement = <HTMLInputElement> document.getElementById("txtID");
@@ -190,6 +193,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Function to start the application
   ngOnInit(): void {
 
     this.getAllUsers();
@@ -197,6 +201,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Function to start the assigned events
   initEvents(){
 
     let filter: HTMLInputElement =<HTMLInputElement> document.getElementById("txtSearch");
@@ -247,6 +252,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Function to get all registered contacts
   getAllUsers(){
 
 
@@ -286,6 +292,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Function to change the title of the form this to edit or save depending on the case
   changeTitle(){
 
     this.resetControl();
@@ -293,6 +300,7 @@ export class BodyComponent implements OnInit {
     title.innerText="New Contact";
   }
 
+  //Get the data of a contact to later edit it
   geteditUser(element: any){
 
     this.userForm.reset();
@@ -319,6 +327,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Delete a contact by identifier
   deleteUser(elemento: any){
 
     Swal.fire({
@@ -381,6 +390,7 @@ export class BodyComponent implements OnInit {
     //this.getAllUsers();
   }
 
+  //Reset form controls
   resetControl(): void{
 
 
@@ -390,7 +400,7 @@ export class BodyComponent implements OnInit {
 
   }
 
-
+  //Separate the file content by rows
   parseCSV(text: any) {
     // Obtenemos las lineas del texto
     let lines = text.split('\n');
@@ -401,7 +411,7 @@ export class BodyComponent implements OnInit {
     });
   }
   
-  
+  //Read the content of the CSV file
   readFile() {
 
 
@@ -438,6 +448,7 @@ export class BodyComponent implements OnInit {
     }
   }   
   
+  //Guarda los contacto que contiene el archivo CSV
   setUsersCSV(output: any){
 
 
@@ -516,6 +527,7 @@ export class BodyComponent implements OnInit {
 
   }
 
+  //Validates the conditions for the form controls
   validateControls(name: string, address: string, phone: string, curp: string): string{
 
     let isValid: string = "";
