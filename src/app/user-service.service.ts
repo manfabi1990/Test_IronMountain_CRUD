@@ -7,14 +7,14 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 })
 export class UserServiceService {
 
-URL = "http://localhost/php_test/"
+URL = "http://localhost/php_test/Views/"
 
   constructor(private http: HttpClient) { }
 
-
+  //
   getAll(){
 
-    return this.http.get(`${this.URL}getAlluser.php`);
+    return this.http.get(`${this.URL}getAllusersService.php`);
 
   }
 
@@ -22,21 +22,21 @@ URL = "http://localhost/php_test/"
 
 
 
-    return this.http.get(`${this.URL}deleteUser.php?ID=` + ID + ``);
+    return this.http.get(`${this.URL}deleteUserService.php?ID=` + ID + ``);
 
   }
 
-  insertUser(registrationDate: Date, name: String, address: String, phone: String, curp: String){
+  insertUser(registrationDate: string, name: String, address: String, phone: String, curp: String){
 
 
-    return this.http.get(`${this.URL}insertUser.php?registrationDate="`+ registrationDate + `"&name="` + name + `"&address="` + address + `"&phone=` + phone + `&curp="` + curp + `"`);
+    return this.http.get(`${this.URL}insertUserService.php?registrationDate="`+ registrationDate + `"&name="` + name + `"&address="` + address + `"&phone=` + phone + `&curp="` + curp + `"`);
 
   }
 
-  editUser(id: String, registrationDate: Date, name: String, address: String, phone: String, curp: String){
+  editUser(id: String, registrationDate: string, name: String, address: String, phone: String, curp: String){
 
 
-    return this.http.get(`${this.URL}editUser.php?ID=` + id + `&registrationDate="`+ registrationDate + `"&name="` + name + `"&address="` + address + `"&phone=` + phone + `&curp="` + curp + `"`);
+    return this.http.get(`${this.URL}editUserService.php?ID=` + id + `&registrationDate="`+ registrationDate + `"&name="` + name + `"&address="` + address + `"&phone=` + phone + `&curp="` + curp + `"`);
 
   }
 }
